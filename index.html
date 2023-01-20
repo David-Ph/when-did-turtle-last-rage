@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>When did Snapping Turtle Last Rage</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: rgb(41, 41, 41);
+      color: #fff;
+      font-size: 2rem;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .main-section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      padding: 0 150px;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <main>
+      <div class="main-section">
+        <img
+          src="https://media.discordapp.net/attachments/1065835417947082772/1065836289129201784/Screenshot_2023-01-20_at_10.27.33.png"
+          alt=""
+        />
+        <h1>19 January 2023</h1>
+        <h2>During matchid: 6977538939</h2>
+        <p>
+          It has been
+          <span id="rage-since"></span>
+          since our streamer last rage
+        </p>
+      </div>
+    </main>
+    <script>
+      const rageSinceElement = document.querySelector("#rage-since");
+
+      setInterval(() => {
+        const today = new Date();
+        const lastRage = new Date("2023-01-19T22:00:00");
+        const difference = Math.abs(today.valueOf() - lastRage.valueOf());
+
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(difference / (1000 * 60 * 60) - days * 24);
+        const minutes = Math.floor(difference / (1000 * 60) - hours * 60);
+        const seconds =
+          Math.floor(difference / 1000) -
+          Math.floor(difference / 1000 / 60) * 60;
+
+        const dateText = `${days} days, ${hours} hours, ${minutes} minutes and ${seconds} seconds`;
+
+        rageSinceElement.textContent = dateText;
+      }, 1000);
+    </script>
+  </body>
+</html>
